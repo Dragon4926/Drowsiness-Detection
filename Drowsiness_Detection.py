@@ -36,7 +36,7 @@ flag = 0
 # Main loop for video capturing and processing
 while True:
 	ret, frame = cap.read()
-	frame = imutils.resize(frame, width=450)
+	frame = imutils.resize(frame, width=640, height=480)
 	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 	subjects = detect(gray, 0)
 	for subject in subjects:
@@ -57,7 +57,7 @@ while True:
 			if flag >= frame_check:
 				cv2.putText(frame, "****************ALERT****************", (10, 30),
 					cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-				cv2.putText(frame, "****************Wake Up**************", (10,325),
+				cv2.putText(frame, "****************Wake Up**************", (10,450),
 					cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 				mixer.music.play()
 		else:
